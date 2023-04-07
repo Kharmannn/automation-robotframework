@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.2 on linux)" generated="20230407 16:23:37.597" rpa="false" schemaversion="3">
+<suite id="s1" name="Page Object" source="/home/koinworks/Personal/project/automation-robot-framework/.venv/src/test_cases/page_object.robot">
+<test id="s1-t1" name="Verify Successful Login to OrangeHRM" line="11">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${site_url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230407 16:23:37.689" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/'.</msg>
+<status status="PASS" starttime="20230407 16:23:37.688" endtime="20230407 16:23:48.178"/>
+</kw>
+<kw name="Input Username" library="login_page">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LoginUsernameInputBox}</arg>
+<arg>${Username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230407 16:23:48.180" level="INFO">Typing text 'Admin' into text field 'name:username'.</msg>
+<msg timestamp="20230407 16:23:48.275" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230407 16:23:48.275" level="FAIL">Element with locator 'name:username' not found.</msg>
+<status status="FAIL" starttime="20230407 16:23:48.179" endtime="20230407 16:23:48.277"/>
+</kw>
+<status status="FAIL" starttime="20230407 16:23:48.179" endtime="20230407 16:23:48.277"/>
+</kw>
+<doc>This test case verifies that the user is able to successfully Login and Logout to OrangeHRM using Page Object</doc>
+<tag>Smoke</tag>
+<status status="FAIL" starttime="20230407 16:23:37.688" endtime="20230407 16:23:48.277">Element with locator 'name:username' not found.</status>
+</test>
+<doc>Page Object in Robot Framework</doc>
+<status status="FAIL" starttime="20230407 16:23:37.599" endtime="20230407 16:23:48.278"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Page Object">Page Object</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
