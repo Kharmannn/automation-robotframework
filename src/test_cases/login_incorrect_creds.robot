@@ -5,7 +5,7 @@ Resource  ../resources/page_objects/keyword_definition_files/login_page.robot
 
 *** Variables ***
 ${USERNAME}                    alvis.bebewash@gmail.com
-${PASSWORD}                    bebewash123
+${PASSWORD}                    Qwerty
 
 *** Test Cases ***
 Verify Successful Login to Facebook Lite
@@ -17,6 +17,7 @@ Verify Successful Login to Facebook Lite
     Input Text    ${USERNAME_FIELD}    ${USERNAME}
     Input Text    ${PASSWORD_FIELD}    ${PASSWORD}
     Click Login Button
-    Save Login Info Page Visible
     Sleep    5
-    Attempt Not Save Login Creds
+    Auto Grant
+    Wait Until Element Is Visible    ${POPUP_WRONG_PWD}
+    Click Element    ${BUTTON_OK_WRONG_PWD}
