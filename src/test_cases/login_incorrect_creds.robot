@@ -8,7 +8,7 @@ ${USERNAME}                    alvis.bebewash@gmail.com
 ${PASSWORD}                    Qwerty
 
 *** Test Cases ***
-Verify Successful Login to Facebook Lite
+Verify Incorrect Login to Facebook Lite
     # [documentation]  This test case verifies that the user is able to successfully Login and Logout to Facebook lite application
     # [tags]  Smoke
     Open Test Application
