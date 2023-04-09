@@ -1,42 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.11.2 on linux)" generated="20230407 16:23:37.597" rpa="false" schemaversion="3">
-<suite id="s1" name="Page Object" source="/home/koinworks/Personal/project/automation-robot-framework/.venv/src/test_cases/page_object.robot">
-<test id="s1-t1" name="Verify Successful Login to OrangeHRM" line="11">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>${site_url}</arg>
-<arg>${browser}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230407 16:23:37.689" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/'.</msg>
-<status status="PASS" starttime="20230407 16:23:37.688" endtime="20230407 16:23:48.178"/>
+<robot generator="Robot 6.0.2 (Python 3.11.2 on linux)" generated="20230409 07:50:45.327" rpa="false" schemaversion="3">
+<suite id="s1" name="Automation-Robot-Framework" source="/home/koinworks/Personal/project/automation-robot-framework">
+<suite id="s1-s1" name="Src" source="/home/koinworks/Personal/project/automation-robot-framework/src">
+<suite id="s1-s1-s1" name="Test Cases" source="/home/koinworks/Personal/project/automation-robot-framework/src/test_cases">
+<suite id="s1-s1-s1-s1" name="Login Correct Creds" source="/home/koinworks/Personal/project/automation-robot-framework/src/test_cases/login_correct_creds.robot">
+<test id="s1-s1-s1-s1-t1" name="Verify Successful Login to Facebook Lite" line="7">
+<kw name="Open Test Application" library="login_page">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>${REMOTE_URL}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>appPackage=${PACKAGE_NAME}</arg>
+<arg>appActivity=${APP_ACTIVITY}</arg>
+<arg>automationName=${ANDROID_AUTOMATION_NAME}</arg>
+<arg>app=${APP_LOCATION}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" starttime="20230409 07:50:45.415" endtime="20230409 07:50:51.525"/>
 </kw>
-<kw name="Input Username" library="login_page">
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${LoginUsernameInputBox}</arg>
-<arg>${Username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230407 16:23:48.180" level="INFO">Typing text 'Admin' into text field 'name:username'.</msg>
-<msg timestamp="20230407 16:23:48.275" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20230407 16:23:48.275" level="FAIL">Element with locator 'name:username' not found.</msg>
-<status status="FAIL" starttime="20230407 16:23:48.179" endtime="20230407 16:23:48.277"/>
+<status status="PASS" starttime="20230409 07:50:45.415" endtime="20230409 07:50:51.525"/>
 </kw>
-<status status="FAIL" starttime="20230407 16:23:48.179" endtime="20230407 16:23:48.277"/>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>com.android.permissioncontroller:id/content_container</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<msg timestamp="20230409 07:50:52.530" level="INFO">criteria is com.android.permissioncontroller:id/content_container
+criteria is com.android.permissioncontroller:id/content_container</msg>
+<status status="PASS" starttime="20230409 07:50:51.525" endtime="20230409 07:50:52.531"/>
 </kw>
-<doc>This test case verifies that the user is able to successfully Login and Logout to OrangeHRM using Page Object</doc>
-<tag>Smoke</tag>
-<status status="FAIL" starttime="20230407 16:23:37.688" endtime="20230407 16:23:48.277">Element with locator 'name:username' not found.</status>
+<kw name="Auto Grant" library="login_page">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>com.android.permissioncontroller:id/permission_deny_button</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20230409 07:50:52.534" level="INFO">Clicking element 'com.android.permissioncontroller:id/permission_deny_button'.</msg>
+<msg timestamp="20230409 07:50:52.601" level="INFO">criteria is com.android.permissioncontroller:id/permission_deny_button</msg>
+<status status="PASS" starttime="20230409 07:50:52.531" endtime="20230409 07:50:52.601"/>
+</kw>
+<status status="PASS" starttime="20230409 07:50:52.531" endtime="20230409 07:50:52.602"/>
+</kw>
+<kw name="Insert Username" library="login_page">
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${USERNAME_FIELD}</arg>
+<arg>username</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20230409 07:50:52.603" level="INFO">Typing text 'username' into text field 'xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[2]/android.widget.MultiAutoCompleteTextView[1]'</msg>
+<msg timestamp="20230409 07:50:53.859" level="INFO">xpath criteria: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[2]/android.widget.MultiAutoCompleteTextView[1]</msg>
+<status status="PASS" starttime="20230409 07:50:52.602" endtime="20230409 07:50:53.859"/>
+</kw>
+<status status="PASS" starttime="20230409 07:50:52.602" endtime="20230409 07:50:53.859"/>
+</kw>
+<kw name="Insert Password" library="login_page">
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${PASSWORD_FIELD}</arg>
+<arg>password</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20230409 07:50:53.864" level="INFO">Typing text 'password' into text field 'xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[2]/android.widget.MultiAutoCompleteTextView[2]'</msg>
+<msg timestamp="20230409 07:50:54.401" level="INFO">xpath criteria: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[2]/android.widget.MultiAutoCompleteTextView[2]</msg>
+<status status="PASS" starttime="20230409 07:50:53.860" endtime="20230409 07:50:54.401"/>
+</kw>
+<status status="PASS" starttime="20230409 07:50:53.860" endtime="20230409 07:50:54.401"/>
+</kw>
+<kw name="Click Login Button" library="login_page">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20230409 07:50:54.402" level="INFO">Clicking element 'xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup[1]'.</msg>
+<msg timestamp="20230409 07:50:54.955" level="INFO">xpath criteria: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup[1]</msg>
+<status status="PASS" starttime="20230409 07:50:54.401" endtime="20230409 07:50:54.955"/>
+</kw>
+<status status="PASS" starttime="20230409 07:50:54.401" endtime="20230409 07:50:54.955"/>
+</kw>
+<status status="PASS" starttime="20230409 07:50:45.415" endtime="20230409 07:50:54.955"/>
 </test>
 <doc>Page Object in Robot Framework</doc>
-<status status="FAIL" starttime="20230407 16:23:37.599" endtime="20230407 16:23:48.278"/>
+<status status="PASS" starttime="20230409 07:50:45.343" endtime="20230409 07:50:54.956"/>
+</suite>
+<status status="PASS" starttime="20230409 07:50:45.342" endtime="20230409 07:50:54.956"/>
+</suite>
+<status status="PASS" starttime="20230409 07:50:45.341" endtime="20230409 07:50:54.957"/>
+</suite>
+<status status="PASS" starttime="20230409 07:50:45.328" endtime="20230409 07:50:54.957"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1" skip="0">Smoke</stat>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Page Object">Page Object</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Automation-Robot-Framework">Automation-Robot-Framework</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Src">Automation-Robot-Framework.Src</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Test Cases">Automation-Robot-Framework.Src.Test Cases</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1" name="Login Correct Creds">Automation-Robot-Framework.Src.Test Cases.Login Correct Creds</stat>
 </suite>
 </statistics>
 <errors>
