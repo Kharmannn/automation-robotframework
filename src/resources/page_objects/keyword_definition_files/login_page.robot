@@ -9,16 +9,17 @@ ${PLATFORM_VERSION}           11
 ${DEVICE_NAME}                emulator-5556
 ${PACKAGE_NAME}               com.facebook.lite
 ${APP_ACTIVITY}               com.facebook.lite.MainActivity
-${APP_LOCATION}               /home/koinworks/Personal/project/automation-robot-framework/src/apk/facebook_lite.apk
+${APP_LOCATION}               /home/koinworks/Personal/project/automation-robotframework/src/apk/facebook_lite.apk
 
 #*** Main Page ***
-${USERNAME_FIELD}             xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[2]/android.widget.MultiAutoCompleteTextView[1]
-${PASSWORD_FIELD}             xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[2]/android.widget.MultiAutoCompleteTextView[2]
-${LOGIN_BUTTON}               xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup[1]
-${SAVE_LOGIN_INFO_PAGE}       xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[3]            
-${BUTTON_NOT_NOW}             xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[3]/android.view.ViewGroup[1]
-${POPUP_WRONG_PWD}            xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[4]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup
-${BUTTON_OK_WRONG_PWD}        xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[4]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.View
+${DENY_BUTTON}                xpath=//android.widget.Button[@text='Deny']
+${USERNAME_FIELD}             xpath=//android.widget.MultiAutoCompleteTextView[@index = 2]
+${PASSWORD_FIELD}             xpath=//android.widget.MultiAutoCompleteTextView[@index = 4]
+${LOGIN_BUTTON}               xpath=//android.view.ViewGroup[@index = 5]
+${SAVE_LOGIN_INFO_PAGE}       xpath=//android.widget.FrameLayout[@resource-id='com.facebook.lite:id/main_layout']            
+${BUTTON_NOT_NOW}             xpath=//android.view.ViewGroup[@index = 4]
+${POPUP_WRONG_PWD}            xpath=//android.view.ViewGroup[@index = 0 and @clickable='true' and @checkable='false' and @checked='false']
+${BUTTON_OK_WRONG_PWD}        xpath=//android.view.ViewGroup[@index = 2 and @clickable='true']
 
 #*** Credentials ***
 ${USERNAME}                    alvis.bebewash@gmail.com
@@ -26,7 +27,7 @@ ${PASSWORD}                    bebewash123
 
 *** Keywords ***
 
-Open Test Application
+Membuka Aplikasi
   Open Application  ${REMOTE_URL}    
   ...  deviceName=${DEVICE_NAME}
   ...  platformName=${PLATFORM_NAME}
@@ -36,7 +37,7 @@ Open Test Application
   ...  app=${APP_LOCATION}
 
 Auto Grant
-    Click Element    com.android.permissioncontroller:id/permission_deny_button
+    Click Element    ${DENY_BUTTON}
 
 Click Login Button
     Click Element    ${LOGIN_BUTTON}

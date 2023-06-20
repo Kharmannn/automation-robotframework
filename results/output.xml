@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.11.2 on linux)" generated="20230409 15:12:27.049" rpa="false" schemaversion="3">
-<suite id="s1" name="Automation-Robot-Framework" source="/home/koinworks/Personal/project/automation-robot-framework">
-<suite id="s1-s1" name="Src" source="/home/koinworks/Personal/project/automation-robot-framework/src">
-<suite id="s1-s1-s1" name="Test Cases" source="/home/koinworks/Personal/project/automation-robot-framework/src/test_cases">
-<suite id="s1-s1-s1-s1" name="Login Correct Creds" source="/home/koinworks/Personal/project/automation-robot-framework/src/test_cases/login_correct_creds.robot">
-<test id="s1-s1-s1-s1-t1" name="Verify Successful Login to Facebook Lite" line="11">
-<kw name="Open Test Application" library="login_page">
+<robot generator="Robot 6.0.2 (Python 3.11.2 on linux)" generated="20230610 07:11:57.460" rpa="false" schemaversion="3">
+<suite id="s1" name="Automation-Robotframework" source="/home/koinworks/Personal/project/automation-robotframework">
+<suite id="s1-s1" name="Src" source="/home/koinworks/Personal/project/automation-robotframework/src">
+<suite id="s1-s1-s1" name="Test Cases" source="/home/koinworks/Personal/project/automation-robotframework/src/test_cases">
+<suite id="s1-s1-s1-s1" name="Login Incorrect Creds" source="/home/koinworks/Personal/project/automation-robotframework/src/test_cases/login_incorrect_creds.robot">
+<test id="s1-s1-s1-s1-t1" name="Verify Incorrect Login to Facebook Lite" line="10">
+<kw name="Membuka Aplikasi" library="login_page">
 <kw name="Open Application" library="AppiumLibrary">
 <arg>${REMOTE_URL}</arg>
 <arg>deviceName=${DEVICE_NAME}</arg>
@@ -21,84 +21,112 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 | remote_url          | Yes    | Appium server url |
 | alias               | no     | alias             |
 | strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
-<kw name="Capture Page Screenshot" library="AppiumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
-<msg timestamp="20230409 15:12:47.493" level="FAIL">No application is open</msg>
-<status status="FAIL" starttime="20230409 15:12:47.493" endtime="20230409 15:12:47.495"/>
+<status status="PASS" starttime="20230610 07:11:57.759" endtime="20230610 07:12:05.330"/>
 </kw>
-<msg timestamp="20230409 15:12:47.496" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
-<msg timestamp="20230409 15:12:47.497" level="FAIL">WebDriverException: Message: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20133ms.
-Stacktrace:
-UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20133ms.
-    at getResponseForW3CError (/home/linuxbrew/.linuxbrew/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:804:9)
-    at asyncHandler (/home/linuxbrew/.linuxbrew/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:380:37)</msg>
-<status status="FAIL" starttime="20230409 15:12:27.164" endtime="20230409 15:12:47.498"/>
-</kw>
-<status status="FAIL" starttime="20230409 15:12:27.164" endtime="20230409 15:12:47.498"/>
+<status status="PASS" starttime="20230610 07:11:57.758" endtime="20230610 07:12:05.331"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <arg>com.android.permissioncontroller:id/content_container</arg>
 <doc>Waits until element specified with `locator` is visible.</doc>
-<status status="NOT RUN" starttime="20230409 15:12:47.498" endtime="20230409 15:12:47.499"/>
+<msg timestamp="20230610 07:12:06.926" level="INFO">criteria is com.android.permissioncontroller:id/content_container</msg>
+<status status="PASS" starttime="20230610 07:12:05.332" endtime="20230610 07:12:06.926"/>
 </kw>
 <kw name="Auto Grant" library="login_page">
-<status status="NOT RUN" starttime="20230409 15:12:47.499" endtime="20230409 15:12:47.499"/>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${DENY_BUTTON}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20230610 07:12:06.933" level="INFO">Clicking element 'xpath=//android.widget.Button[@text='Deny']'.</msg>
+<msg timestamp="20230610 07:12:07.434" level="INFO">xpath criteria: //android.widget.Button[@text='Deny']</msg>
+<status status="PASS" starttime="20230610 07:12:06.929" endtime="20230610 07:12:07.434"/>
+</kw>
+<status status="PASS" starttime="20230610 07:12:06.928" endtime="20230610 07:12:07.435"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230610 07:12:10.437" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230610 07:12:07.436" endtime="20230610 07:12:10.437"/>
 </kw>
 <kw name="Input Text" library="AppiumLibrary">
 <arg>${USERNAME_FIELD}</arg>
 <arg>${USERNAME}</arg>
 <doc>Types the given `text` into text field identified by `locator`.</doc>
-<status status="NOT RUN" starttime="20230409 15:12:47.499" endtime="20230409 15:12:47.499"/>
+<msg timestamp="20230610 07:12:10.443" level="INFO">Typing text 'akram@koinworks.com' into text field 'xpath=//android.widget.MultiAutoCompleteTextView[@index = 2]'</msg>
+<msg timestamp="20230610 07:12:10.657" level="INFO">xpath criteria: //android.widget.MultiAutoCompleteTextView[@index = 2]</msg>
+<status status="PASS" starttime="20230610 07:12:10.438" endtime="20230610 07:12:10.658"/>
 </kw>
 <kw name="Input Text" library="AppiumLibrary">
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${PASSWORD}</arg>
 <doc>Types the given `text` into text field identified by `locator`.</doc>
-<status status="NOT RUN" starttime="20230409 15:12:47.500" endtime="20230409 15:12:47.500"/>
+<msg timestamp="20230610 07:12:10.666" level="INFO">Typing text 'Qwerty' into text field 'xpath=//android.widget.MultiAutoCompleteTextView[@index = 4]'</msg>
+<msg timestamp="20230610 07:12:11.244" level="INFO">xpath criteria: //android.widget.MultiAutoCompleteTextView[@index = 4]</msg>
+<status status="PASS" starttime="20230610 07:12:10.660" endtime="20230610 07:12:11.245"/>
 </kw>
 <kw name="Click Login Button" library="login_page">
-<status status="NOT RUN" starttime="20230409 15:12:47.500" endtime="20230409 15:12:47.500"/>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20230610 07:12:11.253" level="INFO">Clicking element 'xpath=//android.view.ViewGroup[@index = 5]'.</msg>
+<msg timestamp="20230610 07:12:11.877" level="INFO">xpath criteria: //android.view.ViewGroup[@index = 5]</msg>
+<status status="PASS" starttime="20230610 07:12:11.247" endtime="20230610 07:12:11.877"/>
 </kw>
-<kw name="Save Login Info Page Visible" library="login_page">
-<status status="NOT RUN" starttime="20230409 15:12:47.500" endtime="20230409 15:12:47.500"/>
+<status status="PASS" starttime="20230610 07:12:11.246" endtime="20230610 07:12:11.878"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>5</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" starttime="20230409 15:12:47.500" endtime="20230409 15:12:47.501"/>
+<msg timestamp="20230610 07:12:16.881" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230610 07:12:11.879" endtime="20230610 07:12:16.881"/>
 </kw>
-<kw name="Attempt Not Save Login Creds" library="login_page">
-<status status="NOT RUN" starttime="20230409 15:12:47.501" endtime="20230409 15:12:47.501"/>
+<kw name="Auto Grant" library="login_page">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${DENY_BUTTON}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20230610 07:12:16.887" level="INFO">Clicking element 'xpath=//android.widget.Button[@text='Deny']'.</msg>
+<msg timestamp="20230610 07:12:17.185" level="INFO">xpath criteria: //android.widget.Button[@text='Deny']</msg>
+<status status="PASS" starttime="20230610 07:12:16.884" endtime="20230610 07:12:17.185"/>
 </kw>
-<status status="FAIL" starttime="20230409 15:12:27.163" endtime="20230409 15:12:47.501">WebDriverException: Message: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20133ms.
-Stacktrace:
-UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20133ms.
-    at getResponseForW3CError (/home/linuxbrew/.linuxbrew/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:804:9)
-    at asyncHandler (/home/linuxbrew/.linuxbrew/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:380:37)</status>
+<status status="PASS" starttime="20230610 07:12:16.883" endtime="20230610 07:12:17.186"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${POPUP_WRONG_PWD}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<msg timestamp="20230610 07:12:19.330" level="INFO">xpath criteria: //android.view.ViewGroup[@index = 0 and @clickable='true' and @checkable='false' and @checked='false']
+xpath criteria: //android.view.ViewGroup[@index = 0 and @clickable='true' and @checkable='false' and @checked='false']</msg>
+<status status="PASS" starttime="20230610 07:12:17.189" endtime="20230610 07:12:19.330"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${BUTTON_OK_WRONG_PWD}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20230610 07:12:19.335" level="INFO">Clicking element 'xpath=//android.view.ViewGroup[@index = 2 and @clickable='true']'.</msg>
+<msg timestamp="20230610 07:12:19.536" level="INFO">xpath criteria: //android.view.ViewGroup[@index = 2 and @clickable='true']</msg>
+<status status="PASS" starttime="20230610 07:12:19.331" endtime="20230610 07:12:19.536"/>
+</kw>
+<status status="PASS" starttime="20230610 07:11:57.752" endtime="20230610 07:12:19.538"/>
 </test>
 <doc>Page Object in Robot Framework</doc>
-<status status="FAIL" starttime="20230409 15:12:27.073" endtime="20230409 15:12:47.502"/>
+<status status="PASS" starttime="20230610 07:11:57.539" endtime="20230610 07:12:19.541"/>
 </suite>
-<status status="FAIL" starttime="20230409 15:12:27.071" endtime="20230409 15:12:47.503"/>
+<status status="PASS" starttime="20230610 07:11:57.535" endtime="20230610 07:12:19.545"/>
 </suite>
-<status status="FAIL" starttime="20230409 15:12:27.070" endtime="20230409 15:12:47.504"/>
+<status status="PASS" starttime="20230610 07:11:57.532" endtime="20230610 07:12:19.548"/>
 </suite>
-<status status="FAIL" starttime="20230409 15:12:27.060" endtime="20230409 15:12:47.505"/>
+<status status="PASS" starttime="20230610 07:11:57.500" endtime="20230610 07:12:19.554"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Automation-Robot-Framework">Automation-Robot-Framework</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s1" name="Src">Automation-Robot-Framework.Src</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="Test Cases">Automation-Robot-Framework.Src.Test Cases</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s1-s1-s1" name="Login Correct Creds">Automation-Robot-Framework.Src.Test Cases.Login Correct Creds</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Automation-Robotframework">Automation-Robotframework</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Src">Automation-Robotframework.Src</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Test Cases">Automation-Robotframework.Src.Test Cases</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1" name="Login Incorrect Creds">Automation-Robotframework.Src.Test Cases.Login Incorrect Creds</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20230409 15:12:47.496" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
 </errors>
 </robot>
